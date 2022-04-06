@@ -1,0 +1,172 @@
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+  text-rendering: optimizeLegibility;
+}
+
+body{
+  font-size: 2rem;
+}
+
+.box{
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.parent{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.title{
+  transform: translateY(-50%);
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+.pendulum_case{
+  position: absolute;
+}
+
+.pendulum{
+  height: 50vh;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.pendulum_string{
+  width: 2px;
+  height: 50%;
+  background-color: rgb(103, 103, 103);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.pendulum_disc{
+  width: 25px;
+  height: 25px;
+  background-color: rgb(42, 42, 42);
+  border: 2.5px solid black;
+  position: relative;
+  transform-origin: 50% 50%;
+
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.reference{
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
+.background{
+  position: absolute;
+  
+  background-color: #e5e5f7;
+  opacity: 0.28;
+  background-image:  linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(to right, #444cf7 1px, #e5e5f7 1px);
+  background-size: 20px 20px;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* The animation code */
+@keyframes anim_blip {
+  0% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes anim_swing {
+  0% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+}
+  100% {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+}
+}
+
+@keyframes anim_sliding {
+  0% {
+    transform: scale(0%);
+    -webkit-transform: scale(0%);
+    -moz-transform: scale(0%);
+    -ms-transform: scale(0%);
+    -o-transform: scale(0%);
+}
+  100% {
+    transform: scale(100%);
+    -webkit-transform: scale(100%);
+    -moz-transform: scale(100%);
+    -ms-transform: scale(100%);
+    -o-transform: scale(100%);
+}
+}
+
+/* The element to apply the animation to */
+.blipping {
+  animation-name: anim_blip;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.sliding {
+  animation-name: anim_sliding;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+}
+
+.swinging {
+  animation-name: anim_swing;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+}

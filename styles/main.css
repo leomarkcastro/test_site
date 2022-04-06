@@ -1,0 +1,15 @@
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  color: #222222;
+  font-size: 20px;
+  font-family: monospace;
+  
+  background-color: white;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
